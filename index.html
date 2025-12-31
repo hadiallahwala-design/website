@@ -26,7 +26,7 @@
       background: radial-gradient(1200px 600px at top, #111 0%, #050505 60%);
       color: var(--text);
       scroll-behavior: smooth;
-      padding-bottom: 90px; /* space for bottom nav on mobile */
+      padding-bottom: 90px;
     }
 
     /* ================= HEADER ================= */
@@ -65,8 +65,8 @@
 
     .brand span {
       font-weight: 700;
-      letter-spacing: 0.6px;
-      font-size: 1.3rem;
+      letter-spacing: 0.4px;
+      font-size: 1.2rem;
       white-space: nowrap;
     }
 
@@ -75,17 +75,25 @@
       align-items: center;
     }
 
-    .nav-links a {
-      color: var(--text);
+    .nav-links a,
+    .bottom-nav a {
+      color: var(--muted);
       text-decoration: none;
-      margin-left: 14px;
       font-weight: 500;
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: 10px;
       transition: background 0.2s, color 0.2s;
+      font-size: 0.95rem;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .bottom-nav a:hover {
+      background: var(--panel-soft);
+      color: var(--text);
+    }
+
+    .nav-links a.active,
+    .bottom-nav a.active {
       background: var(--panel-soft);
       color: var(--accent);
     }
@@ -105,17 +113,17 @@
     }
 
     h1 {
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      margin-bottom: 22px;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      margin-bottom: 20px;
     }
 
     h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      margin-bottom: 22px;
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.75;
       color: var(--muted);
       max-width: 820px;
@@ -123,7 +131,7 @@
 
     .status {
       margin-top: 18px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--accent);
     }
 
@@ -142,29 +150,21 @@
       margin-top: 32px;
     }
 
-    .coming {
-      font-size: 1.2rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
     footer {
       text-align: center;
       padding: 50px 20px;
       color: #777;
       border-top: 1px solid var(--border);
       background: #070707;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
 
-    /* ================= iOS BOTTOM NAV (MOBILE) ================= */
+    /* ================= MOBILE ================= */
     .bottom-nav {
       display: none;
     }
 
     @media (max-width: 768px) {
-
-      /* Hide desktop nav links */
       .nav-links {
         display: none;
       }
@@ -181,37 +181,23 @@
         height: 96px;
       }
 
-      /* Bottom nav */
+      section {
+        padding: 90px 18px;
+      }
+
       .bottom-nav {
         display: flex;
         position: fixed;
         bottom: 12px;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(20, 20, 20, 0.9);
+        background: rgba(20, 20, 20, 0.95);
         backdrop-filter: blur(10px);
         border: 1px solid var(--border);
         border-radius: 22px;
         padding: 10px 14px;
-        gap: 18px;
+        gap: 16px;
         z-index: 200;
-      }
-
-      .bottom-nav a {
-        color: var(--text);
-        text-decoration: none;
-        font-size: 0.9rem;
-        padding: 8px 10px;
-        border-radius: 12px;
-      }
-
-      .bottom-nav a:hover {
-        background: var(--panel-soft);
-        color: var(--accent);
-      }
-
-      section {
-        padding: 90px 18px;
       }
     }
   </style>
@@ -236,7 +222,6 @@
   </nav>
 </header>
 
-<!-- iOS-style bottom nav -->
 <div class="bottom-nav">
   <a href="#home">Home</a>
   <a href="#about">About</a>
@@ -245,34 +230,44 @@
 </div>
 
 <section id="home" class="hero">
-  <h1>Independent Game Studio</h1>
+  <h1>Vanguard Games</h1>
   <p>
-    Vanguard Games is an independent game studio focused on creating
-    high-quality interactive experiences. We are building the foundation
-    for future game releases across modern platforms.
+    Vanguard Games is a small independent game studio. We are currently
+    working on our first releases and building the foundations of the studio.
   </p>
   <div class="status">
-    Currently in early development — first public releases coming soon.
+    Early development stage — more information will be shared over time.
   </div>
 </section>
 
 <section id="about">
-  <h2>About Vanguard Games</h2>
+  <h2>About</h2>
   <div class="card">
     <p>
-      Vanguard Games is a modern, independent studio dedicated to digital
-      entertainment with a focus on long-term quality and clean execution.
+      Vanguard Games was created to focus on making games in a thoughtful,
+      straightforward way. We care about clarity, performance, and building
+      things that feel solid and considered.
+    </p>
+    <p>
+      The studio is currently in its early stages, with projects being developed
+      and refined internally.
     </p>
   </div>
 </section>
 
 <section id="focus">
-  <h2>Studio Focus</h2>
+  <h2>What We’re Working On</h2>
   <div class="card">
-    <p><strong>Mobile Games</strong></p>
     <p>
-      We develop mobile games built for performance, accessibility,
-      and polished user experience on modern devices.
+      <strong>Mobile Games</strong>
+    </p>
+    <p>
+      Our current focus is on mobile games. We’re interested in experiences
+      that are easy to pick up, work reliably, and respect the player’s time.
+    </p>
+    <p>
+      Design decisions are guided by simplicity, usability, and long-term
+      maintainability rather than trends.
     </p>
   </div>
 </section>
@@ -280,9 +275,9 @@
 <section id="projects">
   <h2>Projects</h2>
   <div class="card">
-    <p class="coming">Coming Soon</p>
     <p>
-      Our first games and applications are currently in development.
+      Details about released and upcoming projects will appear here when they
+      are ready to be shared.
     </p>
   </div>
 </section>
@@ -291,8 +286,10 @@
   <h2>Contact</h2>
   <div class="info-grid">
     <div class="card">
-      <p><strong>Email</strong></p>
-      <p class="coming">Coming Soon</p>
+      <p>
+        Contact information will be published once the studio is ready to
+        receive external enquiries.
+      </p>
     </div>
 
     <div class="card">
@@ -309,10 +306,12 @@
 </section>
 
 <section id="terms">
-  <h2>Terms of Service</h2>
+  <h2>Terms</h2>
   <div class="card">
     <p>
-      Vanguard Games provides this website for informational purposes only.
+      This website is provided for general information only. Content may change
+      as the studio develops. Any future products or services will be governed
+      by their own terms when released.
     </p>
   </div>
 </section>
@@ -322,13 +321,12 @@
 </footer>
 
 <script>
-  /* Hide header on scroll (mobile only) */
+  /* Hide header on scroll (mobile) */
   let lastScroll = 0;
   const header = document.getElementById("topHeader");
 
   window.addEventListener("scroll", () => {
     if (window.innerWidth > 768) return;
-
     const currentScroll = window.pageYOffset;
 
     if (currentScroll > lastScroll && currentScroll > 100) {
@@ -336,8 +334,29 @@
     } else {
       header.classList.remove("hidden");
     }
-
     lastScroll = currentScroll;
+  });
+
+  /* Active nav highlight */
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".nav-links a, .bottom-nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      if (pageYOffset >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
   });
 </script>
 
