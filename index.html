@@ -28,7 +28,7 @@
       scroll-behavior: smooth;
     }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (DESKTOP DEFAULT) ===== */
     header {
       position: sticky;
       top: 0;
@@ -43,20 +43,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 24px;
-      gap: 20px;
+      padding: 18px 28px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 18px;
-      flex-shrink: 0;
     }
 
-    /* 🔥 BIG LOGO */
     .brand img {
-      height: 72px; /* DESKTOP BIG */
+      height: 72px;
       width: auto;
       display: block;
     }
@@ -71,14 +68,12 @@
     .nav-links {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav-links a {
       color: var(--text);
       text-decoration: none;
-      margin-left: 12px;
+      margin-left: 14px;
       font-weight: 500;
       padding: 10px 14px;
       border-radius: 8px;
@@ -95,7 +90,7 @@
     section {
       max-width: 1100px;
       margin: auto;
-      padding: 110px 22px;
+      padding: 120px 22px;
     }
 
     .hero {
@@ -117,7 +112,7 @@
     }
 
     p {
-      font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+      font-size: 1.1rem;
       line-height: 1.75;
       color: var(--muted);
       max-width: 820px;
@@ -160,35 +155,63 @@
       font-size: 0.95rem;
     }
 
-    /* ===== MOBILE ===== */
+    /* =====================================================
+       MOBILE — DESIGNED, NOT SHRUNK
+       ===================================================== */
     @media (max-width: 768px) {
+
       nav {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        padding: 20px 16px 14px;
+        gap: 14px;
       }
 
-      .nav-links {
-        width: 100%;
-        justify-content: flex-start;
+      /* Centered logo = premium mobile feel */
+      .brand {
+        justify-content: center;
       }
 
-      /* 🔥 EVEN BIGGER ON MOBILE */
       .brand img {
-        height: 88px;
+        height: 96px;
       }
 
       .brand span {
-        font-size: 1.4rem;
+        display: none;
+      }
+
+      /* Horizontal scroll nav instead of wrapping mess */
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 6px;
+      }
+
+      .nav-links a {
+        white-space: nowrap;
+        margin-left: 0;
+        margin-right: 8px;
+        font-size: 0.95rem;
+      }
+
+      section {
+        padding: 90px 18px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 60px;
+      }
+
+      p {
+        font-size: 1.05rem;
       }
     }
 
     @media (max-width: 420px) {
       .brand img {
-        height: 96px; /* PHONE = HUGE */
-      }
-
-      .brand span {
-        display: none; /* logo only */
+        height: 110px; /* hero-level logo on phone */
       }
     }
   </style>
