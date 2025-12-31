@@ -28,6 +28,7 @@
       scroll-behavior: smooth;
     }
 
+    /* ===== HEADER ===== */
     header {
       position: sticky;
       top: 0;
@@ -43,13 +44,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 22px;
+      padding: 14px 22px;
     }
 
-    .logo {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      height: 22px; /* small & minimal */
+      width: auto;
+      display: block;
+    }
+
+    .brand span {
       font-weight: 700;
       letter-spacing: 0.6px;
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
 
     nav a {
@@ -67,6 +80,7 @@
       color: var(--accent);
     }
 
+    /* ===== SECTIONS ===== */
     section {
       max-width: 1100px;
       margin: auto;
@@ -98,6 +112,12 @@
       max-width: 820px;
     }
 
+    .status {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
     .card {
       background: linear-gradient(180deg, #141414, #0f0f0f);
       border: 1px solid var(--border);
@@ -120,12 +140,6 @@
       letter-spacing: 0.3px;
     }
 
-    .status {
-      margin-top: 20px;
-      font-size: 1rem;
-      color: var(--accent);
-    }
-
     footer {
       text-align: center;
       padding: 50px 20px;
@@ -139,7 +153,13 @@
 
 <header>
   <nav>
-    <div class="logo">Vanguard Games</div>
+    <!-- LEFT: LOGO -->
+    <div class="brand">
+      <img src="vanguardlogo.png" alt="Vanguard Games logo">
+      <span>Vanguard Games</span>
+    </div>
+
+    <!-- RIGHT: NAV -->
     <div>
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -180,18 +200,15 @@
 <section id="focus">
   <h2>Studio Focus</h2>
   <div class="card">
+    <p><strong>Mobile Games</strong></p>
     <p>
-      <strong>Mobile Games</strong>
+      Vanguard Games focuses on developing mobile games designed specifically
+      for modern smartphones and tablets. Our goal is to create engaging,
+      performant, and accessible experiences.
     </p>
     <p>
-      Vanguard Games focuses on developing mobile games designed for modern
-      smartphones and tablets. Our goal is to create engaging, well-polished
-      experiences that are accessible, performant, and enjoyable in short or
-      extended play sessions.
-    </p>
-    <p>
-      We prioritize intuitive controls, optimized performance, and clean
-      design tailored specifically for mobile platforms.
+      We prioritize intuitive controls, optimized performance, and clean design
+      tailored for mobile platforms.
     </p>
   </div>
 </section>
@@ -209,6 +226,7 @@
 
 <section id="contact">
   <h2>Contact</h2>
+
   <div class="info-grid">
     <div class="card">
       <p><strong>Email</strong></p>
