@@ -26,9 +26,10 @@
       background: radial-gradient(1200px 600px at top, #111 0%, #050505 60%);
       color: var(--text);
       scroll-behavior: smooth;
+      padding-bottom: 90px; /* space for bottom nav on mobile */
     }
 
-    /* ===== HEADER (DESKTOP DEFAULT) ===== */
+    /* ================= HEADER ================= */
     header {
       position: sticky;
       top: 0;
@@ -36,6 +37,11 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       z-index: 100;
+      transition: transform 0.3s ease;
+    }
+
+    header.hidden {
+      transform: translateY(-100%);
     }
 
     nav {
@@ -55,7 +61,6 @@
     .brand img {
       height: 72px;
       width: auto;
-      display: block;
     }
 
     .brand span {
@@ -78,7 +83,6 @@
       padding: 10px 14px;
       border-radius: 8px;
       transition: background 0.2s, color 0.2s;
-      font-size: 1rem;
     }
 
     .nav-links a:hover {
@@ -86,7 +90,7 @@
       color: var(--accent);
     }
 
-    /* ===== SECTIONS ===== */
+    /* ================= CONTENT ================= */
     section {
       max-width: 1100px;
       margin: auto;
@@ -103,7 +107,6 @@
     h1 {
       font-size: clamp(2.4rem, 5vw, 3.8rem);
       margin-bottom: 22px;
-      letter-spacing: -0.5px;
     }
 
     h2 {
@@ -143,7 +146,6 @@
       font-size: 1.2rem;
       color: var(--accent);
       font-weight: 500;
-      letter-spacing: 0.3px;
     }
 
     footer {
@@ -155,70 +157,68 @@
       font-size: 0.95rem;
     }
 
-    /* =====================================================
-       MOBILE — DESIGNED, NOT SHRUNK
-       ===================================================== */
+    /* ================= iOS BOTTOM NAV (MOBILE) ================= */
+    .bottom-nav {
+      display: none;
+    }
+
     @media (max-width: 768px) {
 
+      /* Hide desktop nav links */
+      .nav-links {
+        display: none;
+      }
+
       nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 16px 14px;
-        gap: 14px;
-      }
-
-      /* Centered logo = premium mobile feel */
-      .brand {
         justify-content: center;
-      }
-
-      .brand img {
-        height: 96px;
       }
 
       .brand span {
         display: none;
       }
 
-      /* Horizontal scroll nav instead of wrapping mess */
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding-bottom: 6px;
+      .brand img {
+        height: 96px;
       }
 
-      .nav-links a {
-        white-space: nowrap;
-        margin-left: 0;
-        margin-right: 8px;
-        font-size: 0.95rem;
+      /* Bottom nav */
+      .bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(20, 20, 20, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 10px 14px;
+        gap: 18px;
+        z-index: 200;
+      }
+
+      .bottom-nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 8px 10px;
+        border-radius: 12px;
+      }
+
+      .bottom-nav a:hover {
+        background: var(--panel-soft);
+        color: var(--accent);
       }
 
       section {
         padding: 90px 18px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding-top: 60px;
-      }
-
-      p {
-        font-size: 1.05rem;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .brand img {
-        height: 110px; /* hero-level logo on phone */
       }
     }
   </style>
 </head>
 <body>
 
-<header>
+<header id="topHeader">
   <nav>
     <div class="brand">
       <img src="vanguardlogo.png" alt="Vanguard Games logo">
@@ -235,6 +235,14 @@
     </div>
   </nav>
 </header>
+
+<!-- iOS-style bottom nav -->
+<div class="bottom-nav">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</div>
 
 <section id="home" class="hero">
   <h1>Independent Game Studio</h1>
@@ -253,11 +261,7 @@
   <div class="card">
     <p>
       Vanguard Games is a modern, independent studio dedicated to digital
-      entertainment. Our focus is on thoughtful design, clean implementation,
-      and long-term vision.
-    </p>
-    <p>
-      We are currently preparing our first public releases.
+      entertainment with a focus on long-term quality and clean execution.
     </p>
   </div>
 </section>
@@ -267,8 +271,8 @@
   <div class="card">
     <p><strong>Mobile Games</strong></p>
     <p>
-      Vanguard Games focuses on developing mobile games designed specifically
-      for modern smartphones and tablets.
+      We develop mobile games built for performance, accessibility,
+      and polished user experience on modern devices.
     </p>
   </div>
 </section>
@@ -316,6 +320,26 @@
 <footer>
   © 2025 Vanguard Games. All rights reserved.
 </footer>
+
+<script>
+  /* Hide header on scroll (mobile only) */
+  let lastScroll = 0;
+  const header = document.getElementById("topHeader");
+
+  window.addEventListener("scroll", () => {
+    if (window.innerWidth > 768) return;
+
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      header.classList.add("hidden");
+    } else {
+      header.classList.remove("hidden");
+    }
+
+    lastScroll = currentScroll;
+  });
+</script>
 
 </body>
 </html>
