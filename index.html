@@ -143,11 +143,16 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.35);
     }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 32px;
+    /* Contact links (email/phone) */
+    .contact-link {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--panel-soft);
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
 
     footer {
@@ -248,10 +253,6 @@
       straightforward way. We care about clarity, performance, and building
       things that feel solid and considered.
     </p>
-    <p>
-      The studio is currently in its early stages, with projects being developed
-      and refined internally.
-    </p>
   </div>
 </section>
 
@@ -262,10 +263,6 @@
     <p>
       Our current focus is on mobile games. We’re interested in experiences
       that are easy to pick up, work reliably, and respect the player’s time.
-    </p>
-    <p>
-      Design decisions are guided by simplicity, usability, and long-term
-      maintainability rather than trends.
     </p>
   </div>
 </section>
@@ -282,26 +279,24 @@
 
 <section id="contact">
   <h2>Contact</h2>
-  <div class="info-grid">
-    <div class="card">
-      <p><strong>Email</strong></p>
-      <p>
-        <a href="mailto:hadi@vanguardgames.co" style="color: var(--accent); text-decoration: none;">
-          hadi@vanguardgames.co
-        </a>
-      </p>
-    </div>
+  <div class="card">
+    <p><strong>Email</strong><br>
+      <a href="mailto:hadi@vanguardgames.co" class="contact-link">
+        hadi@vanguardgames.co
+      </a>
+    </p>
 
-    <div class="card">
-      <p><strong>Address</strong><br>
-        122 Main Khe Shaheen<br>
-        Phase 6 DHA<br>
-        Karachi
-      </p>
-      <p><strong>Phone</strong><br>
+    <p style="margin-top: 20px;"><strong>Phone</strong><br>
+      <a href="tel:+923008990310" class="contact-link">
         +92 300 8990310
-      </p>
-    </div>
+      </a>
+    </p>
+
+    <p style="margin-top: 20px;"><strong>Address</strong><br>
+      122 Main Khe Shaheen<br>
+      Phase 6 DHA<br>
+      Karachi
+    </p>
   </div>
 </section>
 
